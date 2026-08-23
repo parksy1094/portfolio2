@@ -1,6 +1,6 @@
 # Portfolio Guideline
 
-Version: v3.1.0  
+Version: v3.1.1  
 Last Updated: 2026-08-24
 
 ---
@@ -126,7 +126,7 @@ Last Updated: 2026-08-24
 
 ## 6. 현재 정보구조
 
-`v1.4.0` 기준 운영 구조:
+`v1.5.0` 기준 운영 구조:
 
 1. Home / Hero
 2. Career Metrics
@@ -565,7 +565,7 @@ Last Updated: 2026-08-24
 - 별도 빌드 과정 없음
 - GitHub Pages 배포
 - 공개 URL: `https://parksy1094.github.io/portfolio2/`
-- Web version: `v1.4.0`
+- Web version: `v1.5.0`
 - 프로필 사진: `assets/images/portrait.png` (상대경로 참조, HTML 내부 data URI 아님)
 - Open Graph image: `assets/images/og-image.png` (파일 경로는 로컬 자산 기준, `og:image`/`twitter:image` 메타태그 값 자체는 OGP/Twitter Card 스펙상 절대경로 유지 필요)
 - 이력서·경력기술서: `assets/documents/`에 위치, 페이지 내 다운로드 링크는 상대경로 참조
@@ -668,9 +668,9 @@ Last Updated: 2026-08-24
 
 현재 버전:
 
-- Web implementation: `v1.4.0`
-- README: `v3.1.0`
-- Portfolio Guideline: `v3.1.0`
+- Web implementation: `v1.5.0`
+- README: `v3.1.1`
+- Portfolio Guideline: `v3.1.1`
 
 버전 원칙:
 

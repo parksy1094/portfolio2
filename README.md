@@ -1,6 +1,6 @@
 # Bio Research Portfolio
 
-Version: v3.1.0  
+Version: v3.1.1  
 Last Updated: 2026-08-24
 
 ---
@@ -30,7 +30,7 @@ Last Updated: 2026-08-24
 
 ### Current Implementation
 
-- Web version: `v1.4.0`
+- Web version: `v1.5.0`
 - 공식 운영 문서:
   - `README.md`
   - `Portfolio_Guideline.md`
@@ -39,7 +39,7 @@ Last Updated: 2026-08-24
 
 ## 3. 현재 구현 구조
 
-현재 `v1.4.0` 기준 정보구조는 다음과 같다.
+현재 `v1.5.0` 기준 정보구조는 다음과 같다.
 
 1. Home / Hero
 2. Career Metrics
@@ -367,4 +367,4 @@ portfolio/
 - `README.md`
 - `Portfolio_Guideline.md`
 
-현재 공식 문서 버전: `v3.1.0`
+현재 공식 문서 버전: `v3.1.1`
