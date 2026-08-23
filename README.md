@@ -1,6 +1,6 @@
 # Bio Research Portfolio
 
-Version: v3.0.2  
+Version: v3.1.0  
 Last Updated: 2026-08-24
 
 ---
@@ -30,7 +30,7 @@ Last Updated: 2026-08-24
 
 ### Current Implementation
 
-- Web version: `v1.3.2`
+- Web version: `v1.4.0`
 - 공식 운영 문서:
   - `README.md`
   - `Portfolio_Guideline.md`
@@ -39,7 +39,7 @@ Last Updated: 2026-08-24
 
 ## 3. 현재 구현 구조
 
-현재 `v1.3.0` 기준 정보구조는 다음과 같다.
+현재 `v1.4.0` 기준 정보구조는 다음과 같다.
 
 1. Home / Hero
 2. Career Metrics
@@ -52,7 +52,8 @@ Last Updated: 2026-08-24
 9. Core Research Competencies
 10. Collaboration & Leadership
 11. Scientific Outputs
-12. Contact
+12. AI-Assisted Data Analysis
+13. Contact
 
 Hero와 주요 메시지는 유지하면서, 중간 섹션의 가독성·정보 위계·프로젝트 전달력을 개선한 구조이다.
 
@@ -180,6 +181,16 @@ Flagship보다 낮은 정보 위계로 유지하며 세포 기반 효능평가, 
 - 국가연구개발과제 결과보고서: 2
 
 주요 논문 3건과 DOI 링크를 제공한다.
+
+### AI-Assisted Data Analysis
+
+기존 신약개발 경력과 별개로, 개인 학습 목적의 데이터 분석 실습을 소개하는 섹션. 분석 방향과 의사결정은 직접 수행하고 Claude Code를 구현·검증 보조 도구로 활용했음을 도입부에 명시한다. `Ongoing` 배지(그라디언트 스윕 애니메이션, `prefers-reduced-motion` 대응)로 프로젝트 목록이 계속 추가될 예정임을 표시한다.
+
+현재 공개 프로젝트 3건 (각 GitHub 저장소로 연결):
+
+- Bike Sharing Demand Analysis (`bike-sharing-portfolio`) — XGBoost 튜닝 모델 Test R² 0.889
+- London Bike Sharing Demand Analysis (`london-bikeshare-demand-regression`) — Ridge 회귀 Test R² 0.788
+- DPP-IV Inhibitory Peptide Classification (`dpp4-inhibitory-peptide-classification`) — XGBoost 모델 Test ROC-AUC 0.967
 
 ### Contact / Downloads
 
@@ -356,4 +367,4 @@ portfolio/
 - `README.md`
 - `Portfolio_Guideline.md`
 
-현재 공식 문서 버전: `v3.0.2`
+현재 공식 문서 버전: `v3.1.0`

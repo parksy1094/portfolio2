@@ -1,6 +1,6 @@
 # Portfolio Guideline
 
-Version: v3.0.2  
+Version: v3.1.0  
 Last Updated: 2026-08-24
 
 ---
@@ -126,7 +126,7 @@ Last Updated: 2026-08-24
 
 ## 6. 현재 정보구조
 
-`v1.3.0` 기준 운영 구조:
+`v1.4.0` 기준 운영 구조:
 
 1. Home / Hero
 2. Career Metrics
@@ -139,7 +139,8 @@ Last Updated: 2026-08-24
 9. Core Research Competencies
 10. Collaboration & Leadership
 11. Scientific Outputs
-12. Contact
+12. AI-Assisted Data Analysis
+13. Contact
 
 구조 변경은 콘텐츠 전달 효과가 명확히 개선되는 경우에만 진행하며, 변경 후 README와 Guideline을 실제 구현에 맞게 업데이트한다.
 
@@ -383,7 +384,28 @@ Last Updated: 2026-08-24
 - Poster, Data Package, 결과보고서 등 기존 공개 산출물은 유지한다.
 - 새로운 정량 수치는 근거와 공개 가능 여부를 확인한 후 추가한다.
 
-### 7.12 Contact / Downloads
+### 7.12 AI-Assisted Data Analysis
+
+목적:
+
+- 기존 신약개발 경력에 안주하지 않고, 새로운 과제 앞에서 필요한 지식과 평가 방법을 스스로 찾아 학습하는 태도를 보여준다.
+- 신약개발 경험과는 성격이 다른 개인 학습 프로젝트임을 분명히 구분한다.
+
+현재 공개 프로젝트 3건 (모두 개인 GitHub 저장소로 연결):
+
+- Bike Sharing Demand Analysis
+- London Bike Sharing Demand Analysis (연도 단위 시간분할)
+- DPP-IV Inhibitory Peptide Classification
+
+기준:
+
+- 섹션 도입부에 "분석 방향과 의사결정은 직접 수행하고, Claude Code는 구현·검증을 보조하는 도구로 활용했다"는 역할구분을 명시한다(5.2, 9.3 관련 — 외부 파트너 AI 예측과는 성격이 다른 별개 조항).
+- 각 프로젝트는 GitHub README에 근거가 문서화된 경우에만 추가한다. 방법론·핵심 결과가 문서화되지 않은 저장소는 포함하지 않는다.
+- 정량 결과는 README에서 확인된 수치만 사용하고, "이미 적용했다/성공했다"처럼 완료형으로 확대해석하지 않는다 — 신약개발 커리어와의 연결은 "연결해 나가고자 함"과 같이 의도·방향으로만 표현한다(5.3).
+- `Ongoing` 배지로 프로젝트 목록이 3건으로 마감된 것이 아니라 계속 추가될 예정임을 표시한다. 배지 애니메이션은 8.7 기준(짧고 미묘한 움직임, `prefers-reduced-motion` 대응)을 따르되, 이 섹션만은 나머지 정적인 포트폴리오와 다른 톤(그라디언트 스윕)을 의도적으로 사용한다.
+- Flagship보다 낮은 시각적 위계를 유지하되, 카드 그리드가 아닌 케이스 스터디 형태로 구성해 신약개발 프로젝트들과 시각적으로 구분한다.
+
+### 7.13 Contact / Downloads
 
 현재 구성:
 
@@ -543,7 +565,7 @@ Last Updated: 2026-08-24
 - 별도 빌드 과정 없음
 - GitHub Pages 배포
 - 공개 URL: `https://parksy1094.github.io/portfolio2/`
-- Web version: `v1.3.2`
+- Web version: `v1.4.0`
 - 프로필 사진: `assets/images/portrait.png` (상대경로 참조, HTML 내부 data URI 아님)
 - Open Graph image: `assets/images/og-image.png` (파일 경로는 로컬 자산 기준, `og:image`/`twitter:image` 메타태그 값 자체는 OGP/Twitter Card 스펙상 절대경로 유지 필요)
 - 이력서·경력기술서: `assets/documents/`에 위치, 페이지 내 다운로드 링크는 상대경로 참조
@@ -646,9 +668,9 @@ Last Updated: 2026-08-24
 
 현재 버전:
 
-- Web implementation: `v1.3.2`
-- README: `v3.0.2`
-- Portfolio Guideline: `v3.0.2`
+- Web implementation: `v1.4.0`
+- README: `v3.1.0`
+- Portfolio Guideline: `v3.1.0`
 
 버전 원칙:
 
