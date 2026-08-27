@@ -1,0 +1,80 @@
+name: Temporary official docs sync
+
+on:
+  push:
+    branches:
+      - sync-official-docs-v1-4-20260828
+
+permissions:
+  contents: write
+
+jobs:
+  sync-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Synchronize README and Portfolio Guideline
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          readme = Path('README.md')
+          r = readme.read_text(encoding='utf-8')
+          r = re.sub(r'^Version: .*$', 'Version: v3.2.0  ', r, count=1, flags=re.M)
+          r = re.sub(r'^Last Updated: .*$', 'Last Updated: 2026-08-28', r, count=1, flags=re.M)
+          r = re.sub(
+              r'### Status\n.*?(?=### Public URL)',
+              '''### Status\n\n- 포트폴리오 `v1.4.0` 운영본 배포 완료\n- 승인된 AI-Assisted Data Analysis 섹션을 Core Research Competencies 이후, Collaboration & Leadership 이전에 통합\n- AI/Data 상세 내용은 기본 접힘 상태의 compact summary + expandable details 구조로 운영\n- 단일 `index.html` 기반 정적 웹사이트 구조 유지\n- 프로필 이미지는 `assets/images/portrait.png` 상대경로로 참조\n- GitHub Pages 배포 및 build/deploy workflow 성공 확인\n\n''',
+              r, count=1, flags=re.S)
+          r = re.sub(r'- Web version: `v[^`]+`', '- Web version: `v1.4.0`', r, count=1)
+          r = re.sub(
+              r'현재 `v[^`]+` 기준 정보구조는 다음과 같다\.\n\n.*?\n\nHero와 주요 메시지는 유지하면서',
+              '''현재 `v1.4.0` 기준 정보구조는 다음과 같다.\n\n1. Home / Hero\n2. Career Metrics\n3. Career Snapshot\n4. Flagship Projects\n5. Career Growth\n6. Evidence to Decision\n7. Research Workflow\n8. Supporting Projects\n9. Core Research Competencies\n10. AI-Assisted Data Analysis\n11. Collaboration & Leadership\n12. Scientific Outputs\n13. Contact\n\nHero와 주요 메시지는 유지하면서''',
+              r, count=1, flags=re.S)
+          r = re.sub(
+              r'### AI-Assisted Data Analysis\n.*?(?=### Contact / Downloads)',
+              '''### AI-Assisted Data Analysis\n\n기존 신약개발 연구에서 사용해 온 질문 정의·데이터 검토·검증·해석의 방식을 데이터 분석으로 확장한 영역이다. AI/Data는 별도 커리어가 아니라 R&D 역량 확장으로 표현한다.\n\n기본 화면은 compact summary로 유지하고, `View Data Analysis Projects`를 통해 상세 내용을 펼쳐보는 구조를 사용한다.\n\n분석 역량 확장 흐름:\n\n- Foundation — Washington Bike Sharing — `ML Workflow · Leakage Detection`\n- Method Expansion — London Bike Sharing — `Temporal Validation · Generalization`\n- Biomedical Application — DPP-IV · METABRIC — `ML · Statistics · Interpretation`\n- Current Focus — Foundation & Depth — `Statistics · ML Evaluation · Python Understanding · Reproducibility`\n\n분석 접근 방식:\n\n`Question → Data Check → Analysis Design → AI-assisted Implementation → Validation → Interpretation`\n\nFeedback Loop:\n\n`Validation → Refine & Re-analyze → Analysis Design`\n\n현재 대표 Biomedical Data Analysis:\n\n- DPP-IV Inhibitory Peptide Classification — 예측 성능뿐 아니라 모델이 포착한 sequence signal의 생물학적 의미를 기존 연구 및 biological knowledge와 비교\n- METABRIC TP53 Mutation & Cancer-Specific Survival Analysis — 유의한 결과 이후에도 proportional hazards assumption을 검증하고 stratified Cox model로 재분석\n\nAI는 분석 방법 검토와 구현·반복 실행을 지원하는 도구로 활용하며, 결과의 타당성 검토·재분석 여부 판단·해석은 연구 의사결정 과정의 일부로 유지한다.\n\n''',
+              r, count=1, flags=re.S)
+          r = re.sub(
+              r'## 10\. 현재 검수 상태\n.*?(?=## 11\.)',
+              '''## 10. 현재 검수 상태\n\n`v1.4.0` 운영본에서 아래 항목을 확인하였다.\n\n### 콘텐츠\n\n- Flagship Projects 3개 유지\n- 7단계 Research Workflow 유지\n- AI-Assisted Data Analysis를 R&D 역량 확장으로 통합\n- DPP-IV와 METABRIC을 대표 Biomedical Data Analysis로 제시\n- 공개용으로 부적합한 제작자·채용 최적화 메타 문구 미노출\n\n### 기술\n\n- 중복 HTML ID 없음\n- 깨진 내부 Anchor 없음\n- 새창 외부 링크에 `noopener noreferrer` 적용\n- 프로필 사진 `assets/images/portrait.png` 참조\n- OG image 및 공개 문서 링크를 실제 `assets/` 경로와 일치시킴\n- GitHub Pages build 및 deploy 성공 확인\n\n### 운영\n\n- `main` 브랜치 운영 `index.html` 반영 완료\n- GitHub Pages 배포 완료\n- README와 Portfolio Guideline을 실제 구현과 동기화\n\n---\n\n''',
+              r, count=1, flags=re.S)
+          readme.write_text(r, encoding='utf-8')
+
+          guide = Path('Portfolio_Guideline.md')
+          g = guide.read_text(encoding='utf-8')
+          g = re.sub(r'^Version: .*$', 'Version: v3.2.0  ', g, count=1, flags=re.M)
+          g = re.sub(r'^Last Updated: .*$', 'Last Updated: 2026-08-28', g, count=1, flags=re.M)
+          g = re.sub(
+              r'`v[^`]+` 기준 운영 구조:\n\n.*?\n\n구조 변경은',
+              '''`v1.4.0` 기준 운영 구조:\n\n1. Home / Hero\n2. Career Metrics\n3. Career Snapshot\n4. Flagship Projects\n5. Career Growth\n6. Evidence to Decision\n7. Research Workflow\n8. Supporting Projects\n9. Core Research Competencies\n10. AI-Assisted Data Analysis\n11. Collaboration & Leadership\n12. Scientific Outputs\n13. Contact\n\n구조 변경은''',
+              g, count=1, flags=re.S)
+          replacement = '''### 7.10 AI-Assisted Data Analysis\n\n목적:\n\n- 기존 신약개발 연구에서 사용해 온 질문 정의·데이터 검토·검증·해석 방식을 데이터 분석으로 확장한다.\n- AI/Data를 별도 커리어로 제시하지 않고 R&D 역량 확장으로 표현한다.\n- 프로젝트 수보다 분석 과정의 검증·재분석·해석 방식을 보여준다.\n\n기본 UI:\n\n- 기본 화면은 compact summary로 유지한다.\n- `View Data Analysis Projects`를 통해 상세 내용을 펼치는 구조를 사용한다.\n- 상세 영역은 `Expanding Analytical Capability`, `How I Approach Data Analysis`, `Biomedical Data Analysis` 세 블록으로 구성한다.\n- AI/Data 섹션의 시각적 비중은 Core R&D 경험보다 낮게 유지한다.\n\n분석 역량 확장 흐름:\n\n- Foundation — Washington Bike Sharing — `ML Workflow · Leakage Detection`\n- Method Expansion — London Bike Sharing — `Temporal Validation · Generalization`\n- Biomedical Application — DPP-IV · METABRIC — `ML · Statistics · Interpretation`\n- Current Focus — Foundation & Depth\n\n분석 프로세스:\n\n`Question → Data Check → Analysis Design → AI-assisted Implementation → Validation → Interpretation`\n\n강조 단계:\n\n- Data Check\n- Validation\n- Interpretation\n\nFeedback Loop:\n\n`Validation → Refine & Re-analyze → Analysis Design`\n\n대표 Biomedical Data Analysis:\n\n- DPP-IV Inhibitory Peptide Classification\n- METABRIC TP53 Mutation & Cancer-Specific Survival Analysis\n\n기준:\n\n- AI는 분석 방법 검토와 구현·반복 실행을 지원하는 도구로 표현한다.\n- 사용자의 독립적인 Python 개발 역량이나 AI의 독립적 의사결정을 과장하지 않는다.\n- 결과의 타당성 검토, 재분석 여부 판단, 해석 및 R&D 의미 연결을 핵심으로 표현한다.\n- 정량 결과는 실제 프로젝트 근거가 확인된 경우에만 사용한다.\n- DPP-IV는 Biological Interpretation, METABRIC은 Model Validation과 Re-analysis를 주요 증거로 제시한다.\n- Flagship보다 낮은 시각적 위계를 유지하고, 과도한 Hero·대형 카드 스타일을 사용하지 않는다.\n\n### 7.11 Collaboration & Leadership\n\n현재 두 영역:\n\n- External Collaboration\n- Research Leadership\n\n기준:\n\n- 협업 기관의 단순 나열보다 본인의 검토·운영·통합 역할을 함께 제시한다.\n- 시험계획, Raw Data, 생산·품질자료 등 실제 검토 범위를 넘어서 표현하지 않는다.\n- `총괄`, `주도` 등의 표현은 실제 책임 범위를 확인한 후 사용한다.\n- 외부 분석·AI 모델링은 직접 수행한 것으로 표현하지 않는다.\n- 기존 공개 화면에서 사용 중인 협업 기관명은 기존 공개 범위를 유지하며 신규 파트너명은 임의 추가하지 않는다.\n\n### 7.12 Scientific Outputs\n\n현재 공개 수치:\n\n- Peer-reviewed Publications: 3\n- Co-first-author Publication: 1\n- AACR Posters: 4\n- Joint Research Data Packages: 2\n- 국가연구개발과제 결과보고서: 2\n\n현재 주요 논문 3건을 공개하며 DOI 링크를 제공한다.\n\n기준:\n\n- 논문 제목, 저널, 연도, 저자 역할, DOI는 확인된 정보만 사용한다.\n- 공동 제1저자 표기는 근거가 확인된 경우에만 사용한다.\n- Poster, Data Package, 결과보고서 등 기존 공개 산출물은 유지한다.\n- 새로운 정량 수치는 근거와 공개 가능 여부를 확인한 후 추가한다.\n\n'''
+          g, n = re.subn(r'### 7\.10 Collaboration & Leadership\n.*?(?=### 7\.13 Contact / Downloads)', replacement, g, count=1, flags=re.S)
+          if n != 1:
+              raise SystemExit('Failed to replace Guideline 7.10-7.12 block')
+          g = g.replace('현재 `v1.3.0` CSS 기준:', '현재 `v1.4.0` CSS 기준:', 1)
+          guide.write_text(g, encoding='utf-8')
+          PY
+      - name: Verify synchronized docs
+        shell: bash
+        run: |
+          grep -q 'Version: v3.2.0' README.md
+          grep -q 'Web version: `v1.4.0`' README.md
+          grep -q 'DPP-IV · METABRIC' README.md
+          grep -q 'Version: v3.2.0' Portfolio_Guideline.md
+          grep -q '### 7.10 AI-Assisted Data Analysis' Portfolio_Guideline.md
+          grep -q '### 7.11 Collaboration & Leadership' Portfolio_Guideline.md
+      - name: Commit synchronized docs and remove temporary workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md Portfolio_Guideline.md
+          git rm .github/workflows/sync-official-docs-temp.yml
+          git commit -m "Sync official portfolio docs with v1.4 deployment"
+          git push origin HEAD:sync-official-docs-v1-4-20260828
