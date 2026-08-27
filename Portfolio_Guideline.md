@@ -1,7 +1,7 @@
 # Portfolio Guideline
 
-Version: v3.1.1  
-Last Updated: 2026-08-24
+Version: v3.2.0  
+Last Updated: 2026-08-28
 
 ---
 
@@ -126,7 +126,7 @@ Last Updated: 2026-08-24
 
 ## 6. 현재 정보구조
 
-`v1.5.0` 기준 운영 구조:
+`v1.4.0` 기준 운영 구조:
 
 1. Home / Hero
 2. Career Metrics
@@ -137,9 +137,9 @@ Last Updated: 2026-08-24
 7. Research Workflow
 8. Supporting Projects
 9. Core Research Competencies
-10. Collaboration & Leadership
-11. Scientific Outputs
-12. AI-Assisted Data Analysis
+10. AI-Assisted Data Analysis
+11. Collaboration & Leadership
+12. Scientific Outputs
 13. Contact
 
 구조 변경은 콘텐츠 전달 효과가 명확히 개선되는 경우에만 진행하며, 변경 후 README와 Guideline을 실제 구현에 맞게 업데이트한다.
@@ -350,7 +350,57 @@ Last Updated: 2026-08-24
 - Flagship 문장을 그대로 반복하지 않는다.
 - 지원 직무와 직접 관련된 역량을 앞에 배치할 수 있다.
 
-### 7.10 Collaboration & Leadership
+### 7.10 AI-Assisted Data Analysis
+
+목적:
+
+- 기존 신약개발 연구에서 사용해 온 질문 정의·데이터 검토·검증·해석 방식을 데이터 분석으로 확장한다.
+- AI/Data를 별도 커리어로 제시하지 않고 R&D 역량 확장으로 표현한다.
+- 프로젝트 수보다 분석 과정의 검증·재분석·해석 방식을 보여준다.
+
+기본 UI:
+
+- 기본 화면은 compact summary로 유지한다.
+- `View Data Analysis Projects`를 통해 상세 내용을 펼치는 구조를 사용한다.
+- 상세 영역은 `Expanding Analytical Capability`, `How I Approach Data Analysis`, `Biomedical Data Analysis` 세 블록으로 구성한다.
+- AI/Data 섹션의 시각적 비중은 Core R&D 경험보다 낮게 유지한다.
+
+분석 역량 확장 흐름:
+
+- Foundation — Washington Bike Sharing — `ML Workflow · Leakage Detection`
+- Method Expansion — London Bike Sharing — `Temporal Validation · Generalization`
+- Biomedical Application — DPP-IV · METABRIC — `ML · Statistics · Interpretation`
+- Current Focus — Foundation & Depth
+
+분석 프로세스:
+
+`Question → Data Check → Analysis Design → AI-assisted Implementation → Validation → Interpretation`
+
+강조 단계:
+
+- Data Check
+- Validation
+- Interpretation
+
+Feedback Loop:
+
+`Validation → Refine & Re-analyze → Analysis Design`
+
+대표 Biomedical Data Analysis:
+
+- DPP-IV Inhibitory Peptide Classification
+- METABRIC TP53 Mutation & Cancer-Specific Survival Analysis
+
+기준:
+
+- AI는 분석 방법 검토와 구현·반복 실행을 지원하는 도구로 표현한다.
+- 사용자의 독립적인 Python 개발 역량이나 AI의 독립적 의사결정을 과장하지 않는다.
+- 결과의 타당성 검토, 재분석 여부 판단, 해석 및 R&D 의미 연결을 핵심으로 표현한다.
+- 정량 결과는 실제 프로젝트 근거가 확인된 경우에만 사용한다.
+- DPP-IV는 Biological Interpretation, METABRIC은 Model Validation과 Re-analysis를 주요 증거로 제시한다.
+- Flagship보다 낮은 시각적 위계를 유지하고, 과도한 Hero·대형 카드 스타일을 사용하지 않는다.
+
+### 7.11 Collaboration & Leadership
 
 현재 두 영역:
 
@@ -365,7 +415,7 @@ Last Updated: 2026-08-24
 - 외부 분석·AI 모델링은 직접 수행한 것으로 표현하지 않는다.
 - 기존 공개 화면에서 사용 중인 협업 기관명은 기존 공개 범위를 유지하며 신규 파트너명은 임의 추가하지 않는다.
 
-### 7.11 Scientific Outputs
+### 7.12 Scientific Outputs
 
 현재 공개 수치:
 
@@ -383,27 +433,6 @@ Last Updated: 2026-08-24
 - 공동 제1저자 표기는 근거가 확인된 경우에만 사용한다.
 - Poster, Data Package, 결과보고서 등 기존 공개 산출물은 유지한다.
 - 새로운 정량 수치는 근거와 공개 가능 여부를 확인한 후 추가한다.
-
-### 7.12 AI-Assisted Data Analysis
-
-목적:
-
-- 기존 신약개발 경력에 안주하지 않고, 새로운 과제 앞에서 필요한 지식과 평가 방법을 스스로 찾아 학습하는 태도를 보여준다.
-- 신약개발 경험과는 성격이 다른 개인 학습 프로젝트임을 분명히 구분한다.
-
-현재 공개 프로젝트 3건 (모두 개인 GitHub 저장소로 연결):
-
-- Bike Sharing Demand Analysis
-- London Bike Sharing Demand Analysis (연도 단위 시간분할)
-- DPP-IV Inhibitory Peptide Classification
-
-기준:
-
-- 섹션 도입부에 "분석 방향과 의사결정은 직접 수행하고, Claude Code는 구현·검증을 보조하는 도구로 활용했다"는 역할구분을 명시한다(5.2, 9.3 관련 — 외부 파트너 AI 예측과는 성격이 다른 별개 조항).
-- 각 프로젝트는 GitHub README에 근거가 문서화된 경우에만 추가한다. 방법론·핵심 결과가 문서화되지 않은 저장소는 포함하지 않는다.
-- 정량 결과는 README에서 확인된 수치만 사용하고, "이미 적용했다/성공했다"처럼 완료형으로 확대해석하지 않는다 — 신약개발 커리어와의 연결은 "연결해 나가고자 함"과 같이 의도·방향으로만 표현한다(5.3).
-- `Ongoing` 배지로 프로젝트 목록이 3건으로 마감된 것이 아니라 계속 추가될 예정임을 표시한다. 배지 애니메이션은 8.7 기준(짧고 미묘한 움직임, `prefers-reduced-motion` 대응)을 따르되, 이 섹션만은 나머지 정적인 포트폴리오와 다른 톤(그라디언트 스윕)을 의도적으로 사용한다.
-- Flagship보다 낮은 시각적 위계를 유지하되, 카드 그리드가 아닌 케이스 스터디 형태로 구성해 신약개발 프로젝트들과 시각적으로 구분한다.
 
 ### 7.13 Contact / Downloads
 
@@ -440,7 +469,7 @@ Last Updated: 2026-08-24
 
 ### 8.2 현재 주요 색상
 
-현재 `v1.3.0` CSS 기준:
+현재 `v1.4.0` CSS 기준:
 
 - Warm Ivory / Background: `#FFFBF2`
 - Surface: `#FFFFFF`

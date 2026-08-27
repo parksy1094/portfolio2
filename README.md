@@ -1,7 +1,7 @@
 # Bio Research Portfolio
 
-Version: v3.1.1  
-Last Updated: 2026-08-24
+Version: v3.2.0  
+Last Updated: 2026-08-28
 
 ---
 
@@ -17,12 +17,12 @@ Last Updated: 2026-08-24
 
 ### Status
 
-- 포트폴리오 `v1.3.0` HTML 수정 및 정적 검수 완료
+- 포트폴리오 `v1.4.0` 운영본 배포 완료
+- 승인된 AI-Assisted Data Analysis 섹션을 Core Research Competencies 이후, Collaboration & Leadership 이전에 통합
+- AI/Data 상세 내용은 기본 접힘 상태의 compact summary + expandable details 구조로 운영
 - 단일 `index.html` 기반 정적 웹사이트 구조 유지
-- GitHub Pages 공개 주소는 `portfolio2` 사용
-- 최종 배포 전 검수본: `index_portfolio2_v1.3_reviewed.html`
-- GitHub의 운영 파일은 배포 시 `index.html`로 교체
-- GitHub Pages 배포 후 실제 PC·모바일 화면 및 링크 최종 검수 필요
+- 프로필 이미지는 `assets/images/portrait.png` 상대경로로 참조
+- GitHub Pages 배포 및 build/deploy workflow 성공 확인
 
 ### Public URL
 
@@ -30,7 +30,7 @@ Last Updated: 2026-08-24
 
 ### Current Implementation
 
-- Web version: `v1.5.0`
+- Web version: `v1.4.0`
 - 공식 운영 문서:
   - `README.md`
   - `Portfolio_Guideline.md`
@@ -39,7 +39,7 @@ Last Updated: 2026-08-24
 
 ## 3. 현재 구현 구조
 
-현재 `v1.5.0` 기준 정보구조는 다음과 같다.
+현재 `v1.4.0` 기준 정보구조는 다음과 같다.
 
 1. Home / Hero
 2. Career Metrics
@@ -50,9 +50,9 @@ Last Updated: 2026-08-24
 7. Research Workflow
 8. Supporting Projects
 9. Core Research Competencies
-10. Collaboration & Leadership
-11. Scientific Outputs
-12. AI-Assisted Data Analysis
+10. AI-Assisted Data Analysis
+11. Collaboration & Leadership
+12. Scientific Outputs
 13. Contact
 
 Hero와 주요 메시지는 유지하면서, 중간 섹션의 가독성·정보 위계·프로젝트 전달력을 개선한 구조이다.
@@ -184,13 +184,31 @@ Flagship보다 낮은 정보 위계로 유지하며 세포 기반 효능평가, 
 
 ### AI-Assisted Data Analysis
 
-기존 신약개발 경력과 별개로, 개인 학습 목적의 데이터 분석 실습을 소개하는 섹션. 분석 방향과 의사결정은 직접 수행하고 Claude Code를 구현·검증 보조 도구로 활용했음을 도입부에 명시한다. `Ongoing` 배지(그라디언트 스윕 애니메이션, `prefers-reduced-motion` 대응)로 프로젝트 목록이 계속 추가될 예정임을 표시한다.
+기존 신약개발 연구에서 사용해 온 질문 정의·데이터 검토·검증·해석의 방식을 데이터 분석으로 확장한 영역이다. AI/Data는 별도 커리어가 아니라 R&D 역량 확장으로 표현한다.
 
-현재 공개 프로젝트 3건 (각 GitHub 저장소로 연결):
+기본 화면은 compact summary로 유지하고, `View Data Analysis Projects`를 통해 상세 내용을 펼쳐보는 구조를 사용한다.
 
-- Bike Sharing Demand Analysis (`bike-sharing-portfolio`) — XGBoost 튜닝 모델 Test R² 0.889
-- London Bike Sharing Demand Analysis (`london-bikeshare-demand-regression`) — Ridge 회귀 Test R² 0.788
-- DPP-IV Inhibitory Peptide Classification (`dpp4-inhibitory-peptide-classification`) — XGBoost 모델 Test ROC-AUC 0.967
+분석 역량 확장 흐름:
+
+- Foundation — Washington Bike Sharing — `ML Workflow · Leakage Detection`
+- Method Expansion — London Bike Sharing — `Temporal Validation · Generalization`
+- Biomedical Application — DPP-IV · METABRIC — `ML · Statistics · Interpretation`
+- Current Focus — Foundation & Depth — `Statistics · ML Evaluation · Python Understanding · Reproducibility`
+
+분석 접근 방식:
+
+`Question → Data Check → Analysis Design → AI-assisted Implementation → Validation → Interpretation`
+
+Feedback Loop:
+
+`Validation → Refine & Re-analyze → Analysis Design`
+
+현재 대표 Biomedical Data Analysis:
+
+- DPP-IV Inhibitory Peptide Classification — 예측 성능뿐 아니라 모델이 포착한 sequence signal의 생물학적 의미를 기존 연구 및 biological knowledge와 비교
+- METABRIC TP53 Mutation & Cancer-Specific Survival Analysis — 유의한 결과 이후에도 proportional hazards assumption을 검증하고 stratified Cox model로 재분석
+
+AI는 분석 방법 검토와 구현·반복 실행을 지원하는 도구로 활용하며, 결과의 타당성 검토·재분석 여부 판단·해석은 연구 의사결정 과정의 일부로 유지한다.
 
 ### Contact / Downloads
 
@@ -298,30 +316,30 @@ portfolio/
 
 ## 10. 현재 검수 상태
 
-`v1.3.0` 검수본에서 아래 항목을 확인하였다.
+`v1.4.0` 운영본에서 아래 항목을 확인하였다.
 
 ### 콘텐츠
 
 - Flagship Projects 3개 유지
 - 7단계 Research Workflow 유지
-- Flagship 내부 프로젝트 코드 노출 없음
-- 공개용으로 부적합한 제작자·채용 최적화 메타 문구 제거
-- Footer 공개범위 문구 간소화
+- AI-Assisted Data Analysis를 R&D 역량 확장으로 통합
+- DPP-IV와 METABRIC을 대표 Biomedical Data Analysis로 제시
+- 공개용으로 부적합한 제작자·채용 최적화 메타 문구 미노출
 
 ### 기술
 
 - 중복 HTML ID 없음
 - 깨진 내부 Anchor 없음
-- 빈 링크 없음
 - 새창 외부 링크에 `noopener noreferrer` 적용
-- HTML 기본 구조 정상
-- 원본 프로필 사진 `assets/images/portrait.png` 상대경로 참조로 전환
+- 프로필 사진 `assets/images/portrait.png` 참조
+- OG image 및 공개 문서 링크를 실제 `assets/` 경로와 일치시킴
+- GitHub Pages build 및 deploy 성공 확인
 
-### 남은 검수
+### 운영
 
-- GitHub Pages에 `v1.3.0` 운영 파일 배포
-- 실제 공개 URL에서 Desktop / Tablet / Mobile 화면 확인
-- 공개 사이트의 다운로드·외부 링크 재확인
+- `main` 브랜치 운영 `index.html` 반영 완료
+- GitHub Pages 배포 완료
+- README와 Portfolio Guideline을 실제 구현과 동기화
 
 ---
 
